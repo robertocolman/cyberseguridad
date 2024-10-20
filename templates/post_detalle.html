@@ -16,7 +16,6 @@
             <p>{{ post.contenido }}</p>
         </div>
 
-        <!-- Mostrar comentarios--> 
         <h3>Comentarios</h3>
         {% for comentario in comentarios %}
             <div class="comentario">
@@ -36,7 +35,6 @@
             <p>No hay comentarios aún.</p>
         {% endfor %}
 
-        <!-- Formulario para agregar un comentario -->
         {% if user.is_authenticated %}
             <h3>Agregar un comentario</h3>
             <form method="POST">

@@ -5,7 +5,7 @@
     <h2>Editar artículo</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}  <!-- Muestra el formulario -->
+        {{ form.as_p }}
         <button type="submit" class="btn btn-success">Guardar cambios</button>
     </form>
     <a href="{% url 'blog:lista_posts' %}" class="btn btn-secondary">Cancelar</a>

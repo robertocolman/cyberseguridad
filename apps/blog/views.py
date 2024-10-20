@@ -14,13 +14,8 @@ from django.views.generic import DetailView
 # Create your views here.
 def index(request):
     posts = Post.objects.all().order_by('fecha_publicacion').reverse()[:3] 
-    categorias = Categoria.objects.all()  # Obtener todas las categorías
+    categorias = Categoria.objects.all()  
     return render(request, 'index.html', {'posts': posts, 'categorias': categorias})
-    # Obtiene los últimos 3 posts, ordenados por fecha de publicación (más recientes primero)
-#    ultimosposts = Post.objects.all() 
-    # Obtiene todas las categorías
-#    categorias = Categoria.objects.all()
-     # Pasa los posts y categorías al contexto
 """    context = {
         'ultimosposts': ultimosposts,
         'categorias': categorias,
@@ -48,7 +43,6 @@ class Login(auth_views.LoginView):
     template_name = "auth/login.html"
 
 def lista_posts(request):
-    #posts = Post.objects.filter(fecha_publicacion=timezone.now()).order_by('fecha_publicacion')
     posts=Post.objects.all().order_by('fecha_publicacion')
     categorias = Categoria.objects.all()
     categoria_id = request.GET.get('categoria')
@@ -63,7 +57,6 @@ def postdetalle(request, pk):
     post = get_object_or_404(Post, pk=pk)
     comentarios = Comentario.objects.filter(post=post, aprobado=True)
 
-    # Procesar el formulario de comentarios si se envía a través de POST
     if request.method == 'POST':
         form = ComentarioForm(request.POST)
         if form.is_valid():
@@ -86,7 +79,7 @@ def postdetalle(request, pk):
         comentario.post = post
         comentario.autor_comentario = request.user
         comentario.save()
-        print("Comentario guardado:", comentario)  # Debug: Verifica el comentario
+        print("Comentario guardado:", comentario)  
         return redirect('apps.blog:postdetalle', pk=pk)
 
     return render(request, 'post_detalle.html', context)

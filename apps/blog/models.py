@@ -36,9 +36,9 @@ class Comentario(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     autor_comentario = models.ForeignKey(User, on_delete=models.CASCADE)
     cuerpo_comentario = models.TextField()
-    creado = models.DateTimeField(auto_now_add=True) #¿por qué? 
+    creado = models.DateTimeField(auto_now_add=True) 
     aprobado = models.BooleanField(default=True)
-    fecha_creacion = models.DateTimeField(default=timezone.now)  # Fecha de creación del comentario
+    fecha_creacion = models.DateTimeField(default=timezone.now)  
 
     def __str__(self):
         return f'Comentario por {self.autor_comentario} en {self.post}'

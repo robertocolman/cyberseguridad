@@ -28,7 +28,7 @@ class SignUpView(FormView):
         return super().form_valid(form)
 
 class CustomLoginView(LoginView):
-    template_name = 'auth/login.html'  # Asegúrate de que esta sea la ruta correcta a tu plantilla
+    template_name = 'auth/login.html' 
     success_url = reverse_lazy('index')
 
 
@@ -36,15 +36,3 @@ class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
     template_name = "auth/logout.html"
     next_page = reverse_lazy('blog:index')
 
-
-
-# class Logout(LoginRequiredMixin,auth_views.LogoutView):
-#     ''' Vista de Cierre sesión de Usuario '''
-#     template_name = "auth/logout.html"
-
-# def LogoutView(request):
-#     logout(request)
-#     return redirect('apps.blog:index')
-
-
-    

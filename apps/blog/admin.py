@@ -10,7 +10,6 @@ class CategoriasInline(admin.StackedInline):
 class PostAdmin(admin.ModelAdmin):
     model=Post
     inlines=(CategoriasInline,)
-    #exclude=('categorias',)
     raw_id_fields=('categorias',)
     list_display=('titulo','autor','imagen','categoria')
     search_fields = ('titulo', 'autor', 'fecha_creacion')
@@ -36,8 +35,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class ComentariosAdmin(admin.ModelAdmin):
-    list_display = ('autor_comentario', 'cuerpo_comentario', 'aprobado', 'fecha_creacion')  # Cambia a 'fecha_creacion'
-    list_filter = ('aprobado', 'fecha_creacion')  # Cambia a 'fecha_creacion'
+    list_display = ('autor_comentario', 'cuerpo_comentario', 'aprobado', 'fecha_creacion')  
+    list_filter = ('aprobado', 'fecha_creacion')
     search_fields = ('autor_comentario__username', 'cuerpo_comentario')
 
     def aprobar_comentarios(self, request,queryset):

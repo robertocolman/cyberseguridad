@@ -27,11 +27,4 @@ urlpatterns = [
     path("", index, name='index'),
     path('blog_auth/', include('apps.blog_auth.urls', namespace='blog_auth')),
     path('blog/', include('apps.blog.urls', namespace='blog')),
-    #path('', IndexView.as_view(), name='index'),
-    #path('inicio', AboutView.as_view(template_name='inicio.html')),
-    #path('index', AboutView.as_view()),
-    #path("", index, name='index'),
-    #path("index", home_view, name='home_view'),
-    #path('blog/', include('blog.urls')),
-    #path('auth/', include('auth.urls'))
 ] 
