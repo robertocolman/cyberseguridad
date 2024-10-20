@@ -41,8 +41,8 @@ def base_view(request):
 def contacto(request):
     return render(request, 'contacto.html')
 
-def formulario(request):
-    return render(request, 'formulario.html')
+def AcercaDe(request):
+    return render(request, 'AcercaDeNosotros.html')
 
 class Login(auth_views.LoginView):
     template_name = "auth/login.html"

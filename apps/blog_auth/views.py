@@ -36,6 +36,8 @@ class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
     template_name = "auth/logout.html"
     next_page = reverse_lazy('blog:index')
 
+
+
 # class Logout(LoginRequiredMixin,auth_views.LogoutView):
 #     ''' Vista de Cierre sesión de Usuario '''
 #     template_name = "auth/logout.html"

@@ -4,14 +4,14 @@ from apps.blog.views import *
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import postdetalle, eliminar_comentario,PostDetailView  
+from .views import postdetalle, eliminar_comentario,PostDetailView, AcercaDe
 
 app_name = 'apps.blog'
 
 urlpatterns = [
     path("", index, name='index'),
     path("contacto", contacto, name='contacto'),
-    path("formulario", formulario, name='formulario'),
+    path("AcercaDe", AcercaDe, name='AcercaDe'),    
     path("posts", lista_posts, name='lista_posts'),
     path('posts/crear/', crear_post, name='crear_post'),
     path('editar/<int:pk>/', editar_post, name='editar_post'),  # Usamos pk aquí
@@ -27,8 +27,7 @@ urlpatterns = [
     path('categorias/<int:categoria_id>/', categoria_posts, name='categoria_posts'), 
     path('post/<int:id>/', PostDetailView.as_view(), name='postdetalle'),
     path('posts/<int:pk>/', postdetalle, name='postdetalle'),
-    path('categoria/<int:categoria_id>/', categoria_posts, name='categoria_posts'),
-    
+    path('categoria/<int:categoria_id>/', categoria_posts, name='categoria_posts'),    
 ]  
 
 if settings.DEBUG:

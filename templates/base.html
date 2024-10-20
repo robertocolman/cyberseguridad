@@ -98,8 +98,14 @@
                           <a class="nav-link" href="{% url 'blog:contacto' %}">Contacto</a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link" href="{% url 'apps.blog:AcercaDe' %}">Acerca De Nosotros</a>
+                      </li>
+                      {% if user.is_authenticated %}
+                      <li class="nav-item">
                         <a class="nav-link" href="{% url 'apps.blog:lista_favoritos' %}">Favoritos</a>
                       </li>
+                      {% endif %}
+                      
                   </ul>
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">  <!-- Cambiar 'me-auto' a 'ms-auto' para alinear a la derecha -->
                       {% if user.is_authenticated %}
