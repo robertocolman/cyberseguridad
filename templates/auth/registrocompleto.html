@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<main role="main" class="container">
+    <div class="starter-template text-center">
+       <h1>¡Tu usuario ha sido creado con éxito!</h1>
+       <p class="lead">Serás redirigido al inicio de sesión en 5 segundos. Si no ocurre, pulsa <a href="{% url 'apps.blog_auth:login' %}">aquí</a>.</p>
+    </div>
+</main>
+
+<!-- Redirigir automáticamente a la página de login en 5 segundos -->
+<script>
+    setTimeout(function(){ 
+        window.location.replace("{% url 'apps.blog_auth:login' %}");
+    }, 5000);
+</script>
+
+{% endblock %}
